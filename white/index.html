@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>White Enterprise — что мы увидели и что предлагаем</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600;7..72,700&family=Geist:wght@300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --serif:'Fraunces','Literata',Georgia,serif;
+  --sans:'Geist',-apple-system,system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --paper:#FAF7EF;
+  --ink:#241F17;
+  --ink-soft:#5A5145;
+  --ink-faint:#8C8377;
+  --green:#2E4C3E;
+  --green-soft:#E8EDE9;
+  --rule:#DED7C8;
+  --rule-strong:#C4BBA8;
+  --amber:#8A6A1F;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:1.62;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- шапка ---------- */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(250,247,239,.94);
+  -webkit-backdrop-filter:saturate(180%) blur(10px);backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--rule);}
+.tb-in{max-width:720px;margin:0 auto;padding:11px 24px;display:flex;align-items:center;
+  justify-content:space-between;gap:14px;}
+.tb-brand{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap;}
+.tb-brand span{color:var(--green);}
+.tb-nav{display:flex;align-items:center;gap:7px;}
+.tb-nav a{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);text-decoration:none;padding:8px 12px;
+  border:1px solid var(--rule-strong);border-radius:3px;white-space:nowrap;}
+.tb-nav a:hover{border-color:var(--green);color:var(--green);}
+.tb-nav a.pdf{background:var(--green);border-color:var(--green);color:#fff;}
+
+/* ---------- каркас ---------- */
+.wrap{max-width:720px;margin:0 auto;padding:0 24px 80px;}
+section{padding:44px 0;border-top:1px solid var(--rule);}
+section.hero{border-top:none;}
+
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:14px;}
+h1{font-family:var(--serif);font-weight:600;font-size:38px;line-height:1.1;
+  letter-spacing:-.015em;margin:0 0 20px;}
+h2{font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.18;
+  letter-spacing:-.008em;margin:0 0 18px;}
+p{margin:0 0 14px;}
+.lead{font-size:18.5px;line-height:1.55;color:var(--ink-soft);margin-bottom:28px;}
+.small{font-size:14px;color:var(--ink-faint);line-height:1.5;}
+strong{font-weight:600;}
+a{color:var(--green);}
+
+.hero{padding:52px 0 40px;}
+.hero .stamp{font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:26px;}
+
+/* ---------- цифры ---------- */
+.stats{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--rule-strong);
+  border-bottom:1px solid var(--rule-strong);margin:32px 0 0;}
+.stats > div{flex:1 1 25%;padding:20px 14px 20px 0;}
+.stats > div + div{padding-left:16px;border-left:1px solid var(--rule);}
+.stats .n{font-family:var(--serif);font-size:30px;font-weight:600;line-height:1;color:var(--green);}
+.stats .l{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-faint);margin-top:8px;line-height:1.4;}
+
+/* ---------- тезисы ---------- */
+.facts{list-style:none;margin:0;padding:0;counter-reset:f;}
+.facts li{position:relative;padding:16px 0 16px 42px;border-top:1px solid var(--rule);counter-increment:f;}
+.facts li:first-child{border-top:none;padding-top:4px;}
+.facts li::before{content:counter(f,decimal-leading-zero);position:absolute;left:0;top:18px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--green);font-weight:500;}
+.facts li:first-child::before{top:6px;}
+.facts b{font-weight:600;}
+
+/* ---------- выноски ---------- */
+.pull{font-family:var(--serif);font-size:22px;line-height:1.36;font-weight:500;color:var(--green);
+  border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong);
+  padding:26px 0;margin:32px 0;}
+.callout{background:var(--green-soft);border-left:3px solid var(--green);
+  padding:20px 22px;margin:26px 0;border-radius:3px;}
+.callout .t{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--green);font-weight:500;margin-bottom:10px;}
+.callout p:last-child{margin-bottom:0;}
+
+/* ---------- подход ---------- */
+.approach{display:flex;flex-direction:column;margin:24px 0 0;}
+.approach > div{display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--rule);}
+.approach .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--green);flex:0 0 78px;font-weight:500;}
+.approach .v{flex:1;}
+.approach .v b{font-weight:600;display:block;margin-bottom:3px;}
+.approach .v span{color:var(--ink-soft);font-size:15px;}
+
+/* ---------- этапы ---------- */
+.stage{border:1px solid var(--rule-strong);border-radius:3px;padding:22px 24px;margin-bottom:14px;background:#fff;}
+.stage .h{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+.stage .num{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:#fff;background:var(--green);padding:4px 9px;border-radius:2px;font-weight:500;}
+.stage .ttl{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.2;}
+.stage .tz{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--amber);border:1px solid var(--rule-strong);padding:3px 7px;border-radius:2px;}
+.stage .task{margin-bottom:14px;}
+.stage .form{display:flex;gap:16px;padding-top:13px;border-top:1px solid var(--rule);flex-wrap:wrap;}
+.stage .form > div{flex:1 1 42%;}
+.stage .form .fl{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-faint);margin-bottom:4px;}
+.stage .form .fv{font-size:14.5px;line-height:1.45;color:var(--ink-soft);}
+
+/* ---------- вопросы ---------- */
+.q{padding:18px 0;border-top:1px solid var(--rule);display:flex;gap:16px;}
+.q.first{border-top:none;}
+.q .n{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--green);flex:0 0 24px;line-height:1.2;}
+.q .c{flex:1;}
+.q .qt{font-weight:600;margin-bottom:4px;}
+.q .qb{color:var(--ink-soft);font-size:15px;margin-bottom:8px;}
+.q .qw{font-size:14px;line-height:1.5;color:var(--ink-faint);
+  border-left:2px solid var(--rule-strong);padding-left:13px;}
+.q .qw b{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:4px;}
+
+/* ---------- кнопка ---------- */
+.cta{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  background:var(--green);color:#fff;text-decoration:none;padding:20px 24px;
+  border-radius:3px;margin:28px 0 0;}
+.cta:hover{background:#25402F;}
+.cta .ct{font-family:var(--serif);font-size:18px;font-weight:600;color:#fff;display:block;}
+.cta .cs{font-size:14px;color:#CFDCD3;margin-top:3px;display:block;}
+.cta .ca{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  white-space:nowrap;color:#fff;}
+
+/* ---------- что просим ---------- */
+.ask{counter-reset:a;list-style:none;margin:20px 0 0;padding:0;}
+.ask li{position:relative;padding:0 0 18px 34px;counter-increment:a;}
+.ask li::before{content:counter(a);position:absolute;left:0;top:-1px;
+  font-family:var(--serif);font-size:19px;font-weight:600;color:var(--green);}
+
+footer{border-top:1px solid var(--rule-strong);padding:32px 0 0;margin-top:44px;}
+footer .fb{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:6px;}
+footer .fc{font-size:14.5px;color:var(--ink-soft);line-height:1.6;}
+
+@media (max-width:640px){
+  body{font-size:15.5px;}
+  .tb-in{padding:9px 16px;justify-content:flex-start;}
+  .tb-brand{display:none;}
+  .tb-nav{flex:1;gap:6px;}
+  .tb-nav a{flex:1;text-align:center;font-size:9px;padding:8px 6px;}
+  .wrap{padding:0 16px 56px;}
+  section{padding:34px 0;}
+  .hero{padding:34px 0 30px;}
+  h1{font-size:29px;}
+  h2{font-size:22px;}
+  .lead{font-size:17px;}
+  .stats{display:block;}
+  .stats > div{padding:14px 0;}
+  .stats > div + div{padding-left:0;border-left:none;border-top:1px solid var(--rule);}
+  .stats .n{font-size:26px;}
+  .pull{font-size:19px;padding:22px 0;}
+  .approach > div{flex-direction:column;gap:4px;}
+  .approach .k{flex:none;}
+  .stage{padding:18px;}
+  .stage .ttl{font-size:17.5px;}
+  .stage .form{display:block;}
+  .stage .form > div + div{margin-top:12px;}
+  .cta{flex-direction:column;align-items:flex-start;gap:10px;padding:18px 20px;}
+  .facts li{padding-left:34px;}
+}
+
+@media print{
+  .topbar,.cta{display:none !important;}
+  body{font-size:10.5pt;}
+  section{padding:20pt 0;}
+  .stage,.callout,.pull{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="tb-in">
+    <a class="tb-brand" href="#top">ChefUp<span>·</span>Central Asia</a>
+    <nav class="tb-nav">
+      <a href="#voprosy">Вопросы</a>
+      <a class="pdf" href="ChefUp-White-Enterprise-voprosy.pdf" download="ChefUp — Уточняющие вопросы. White Enterprise.pdf">PDF для заказчика ↓</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap" id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="stamp">Рабочая записка · конфиденциально · 10 сентября 2026</div>
+    <h1>White&nbsp;Enterprise:<br>что мы увидели<br>и что предлагаем</h1>
+    <p class="lead">Коротко — для Александра. Что поняли про сеть, как предлагаем строить работу и какие десять вопросов нужно задать заказчику.</p>
+    <div class="stats">
+      <div><div class="n">12</div><div class="l">заведений</div></div>
+      <div><div class="n">6</div><div class="l">брендов</div></div>
+      <div><div class="n">2</div><div class="l">страны</div></div>
+      <div><div class="n">4</div><div class="l">модуля в ТЗ</div></div>
+    </div>
+  </section>
+
+  <!-- ===== ОБРАЩЕНИЕ ===== -->
+  <section>
+    <div class="eyebrow">Александру</div>
+    <h2>Коротко о том, что это за документ</h2>
+    <p>Спасибо, что рекомендовали нас компании White Enterprise. Мы прочитали техническое задание и разобрали сеть по открытым источникам — сайт, справочники, агрегаторы доставки, вакансии.</p>
+    <p>Встреч не было и доступа к данным у нас нет. Поэтому здесь только то, что можно проверить, плюс наши выводы. Записка короткая намеренно: подробный документ с архитектурой, составом работ и сметой соберём после ответов заказчика.</p>
+    <p><strong>От вас нужно три вещи:</strong> сверить картину со своим знанием сети, сказать, где мы промахиваемся по духу заказчика, и передать заказчику десять вопросов. Для передачи подготовлен отдельный документ — деловой, от нашего лица, его можно переслать как есть.</p>
+  </section>
+
+  <!-- ===== ЧТО УВИДЕЛИ ===== -->
+  <section>
+    <div class="eyebrow">Раздел 1</div>
+    <h2>Что мы увидели</h2>
+    <ol class="facts">
+      <li><b>Это холдинг, а не несколько ресторанов.</b> Двенадцать заведений, шесть брендов, Астана, Алматы и Дубай. Плюс event-направление и непрофильные проекты.</li>
+      <li><b>Полноценного учёта нет.</b> iiko только планируется. При этом задание требует брать из кассы состав заказа и средний чек — брать пока неоткуда.</li>
+      <li><b>Двенадцать заведений — двенадцать номеров у семи разных операторов.</b> Единого номера сети не существует. Колл-центр из задания начинается не с программы, а с телефонии.</li>
+      <li><b>Гость собран в семи не связанных между собой местах:</b> касса, программа лояльности, QR-меню по заведениям, агрегатор доставки, справочники, соцсети и телефон.</li>
+      <li><b>Лояльность — бессрочная скидка 3 / 5 / 7%.</b> Она отдаёт маржу с каждого чека и не даёт данных о том, что человек ест и как часто приходит. Именно этих данных требует модуль рассылок.</li>
+      <li><b>Почти три тысячи отзывов лежат вне контура сети</b> — в справочниках и на агрегаторе доставки. Их никто не сводит и не замыкает на кухню.</li>
+      <li><b>6–8 млн ₸ в год уходит на разрозненные подписки,</b> которые не превращаются в актив: заканчивается подписка — заканчиваются данные.</li>
+    </ol>
+  </section>
+
+  <!-- ===== ГЛАВНЫЙ ВЫВОД ===== -->
+  <section>
+    <div class="eyebrow">Раздел 2</div>
+    <h2>Главный вывод</h2>
+    <p>Сеть выросла быстрее, чем её система управления. Задание ставит правильную цель, но начинается на шаг позже, чем нужно: четыре модуля предполагают, что в сети уже есть регламенты и учёт, из которого можно взять чеки и состав заказов. Ни того, ни другого пока нет.</p>
+    <div class="pull">Сеть из двенадцати заведений сегодня не может назвать свой средний чек. Это не критика — это точное описание того, зачем нужен проект.</div>
+    <p>Если начать с разработки, получится дорогая платформа с пустыми полями: интерфейсы есть, данных внутри нет, а процессы по-прежнему держатся на конкретных людях. Поэтому мы предлагаем другой порядок работы.</p>
+  </section>
+
+  <!-- ===== ПОДХОД ===== -->
+  <section>
+    <div class="eyebrow">Раздел 3</div>
+    <h2>Как мы предлагаем работать</h2>
+    <p>Это методология шеф-ап, по которой мы работаем в HoReCa. Три слоя — и автоматизация в них последняя, а не первая.</p>
+
+    <div class="approach">
+      <div>
+        <div class="k">Слой 1</div>
+        <div class="v"><b>Консалтинг и бизнес-процессы</b><span>Разбираем, как сеть работает на самом деле. Ставим регламенты, зоны ответственности, роли, стандарты обслуживания и работы с бронью. Это делают практики ресторанного бизнеса, а не разработчики.</span></div>
+      </div>
+      <div>
+        <div class="k">Слой 2</div>
+        <div class="v"><b>Данные и учёт</b><span>Ставим учётную систему по единому стандарту на все бренды: справочники, номенклатура, технологические карты, товародвижение, кассовая дисциплина.</span></div>
+      </div>
+      <div>
+        <div class="k">Слой 3</div>
+        <div class="v"><b>Автоматизация</b><span>Платформа из задания: колл-центр, брони и схема зала, единая база гостей, рассылки. Она встаёт на выстроенные процессы и живые данные.</span></div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="t">Почему именно так</div>
+      <p>Автоматизировать имеет смысл порядок. Программа не создаёт регламент и не заменяет управленческое решение — она закрепляет то, что уже работает. Обратный порядок мы видели много раз: сеть покупает систему, а через год пользуется ей на десять процентов, потому что процессы под неё никто не выстроил.</p>
+    </div>
+  </section>
+
+  <!-- ===== ЭТАПЫ ===== -->
+  <section>
+    <div class="eyebrow">Раздел 4</div>
+    <h2>Этапы</h2>
+    <p>Пять этапов. Каждый — это конкретные задачи, и каждый формирует процессы и данные, на которых стоит следующий.</p>
+
+    <div class="stage">
+      <div class="h"><span class="num">Этап 1</span><span class="ttl">Диагностика и архитектура</span></div>
+      <div class="task">Обследуем заведения и процессы, собираем опись действующих сервисов и договоров, проводим аудит телефонии, проектируем целевую архитектуру и готовим техническую спецификацию.</div>
+      <div class="form">
+        <div><div class="fl">Формируем процессы</div><div class="fv">Карту процессов сети «как есть» и «как должно быть»</div></div>
+        <div><div class="fl">Формируем данные</div><div class="fv">Реестр сервисов, расходов и точек интеграции</div></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="h"><span class="num">Этап 2</span><span class="ttl">Процессы и учёт</span></div>
+      <div class="task">Ставим регламенты и зоны ответственности, стандарты обслуживания и работы с бронью, роли и права. Внедряем учётную систему по единому стандарту на все бренды: справочники, номенклатура, техкарты, товародвижение.</div>
+      <div class="form">
+        <div><div class="fl">Формируем процессы</div><div class="fv">Регламенты, стандарты, ролевую модель</div></div>
+        <div><div class="fl">Формируем данные</div><div class="fv">Учёт, справочники, номенклатуру, себестоимость</div></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="h"><span class="num">Этап 3</span><span class="ttl">Обращения и посадка</span><span class="tz">Модули №2 и №3</span></div>
+      <div class="task">Единая номерная ёмкость и один номер сети, колл-центр с определением звонящего и скриптами, автоматический разбор звонков. Брони и интерактивная схема зала с синхронизацией между колл-центром и заведениями.</div>
+      <div class="form">
+        <div><div class="fl">Формируем процессы</div><div class="fv">Работу колл-центра и хостес по единому стандарту</div></div>
+        <div><div class="fl">Формируем данные</div><div class="fv">Историю обращений, броней и неявок</div></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="h"><span class="num">Этап 4</span><span class="ttl">Гость и коммуникации</span><span class="tz">Модули №1 и №4</span></div>
+      <div class="task">Единая карточка гостя по всей сети, привязка чеков к профилю, слияние дублей. Сегментация и рассылки по каналам связи, согласия и отписка. Пересборка программы лояльности.</div>
+      <div class="form">
+        <div><div class="fl">Формируем процессы</div><div class="fv">Работу с гостем и маркетинговые сценарии</div></div>
+        <div><div class="fl">Формируем данные</div><div class="fv">Профиль гостя и историю покупок как актив сети</div></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="h"><span class="num">Этап 5</span><span class="ttl">Внешние каналы и экономика</span></div>
+      <div class="task">Доставка, QR-меню и отзывы заводятся в общий контур. Себестоимость, отчёт по заведению, бренду и группе, панель собственника.</div>
+      <div class="form">
+        <div><div class="fl">Формируем процессы</div><div class="fv">Управление качеством и обратной связью</div></div>
+        <div><div class="fl">Формируем данные</div><div class="fv">Экономику каждого заведения в одном месте</div></div>
+      </div>
+    </div>
+
+    <p class="small" style="margin-top:20px">Разбивку по срокам и стоимости даём отдельным документом после ответов заказчика: считать её сейчас — значит гадать.</p>
+  </section>
+
+  <!-- ===== ВОПРОСЫ ===== -->
+  <section id="voprosy">
+    <div class="eyebrow">Раздел 5 · главное</div>
+    <h2>Десять вопросов заказчику</h2>
+    <p>Каждый меняет объём или структуру предложения. Под каждым — пояснение, зачем он нам: это для вас, в документ заказчику эта часть не идёт. Вопросов про выручку и обороты нет намеренно — на этой стадии их не дадут, а приблизительные цифры хуже честной вилки.</p>
+
+    <div class="q first"><div class="n">1</div><div class="c">
+      <div class="qt">Учётная система</div>
+      <div class="qb">Учётной системы действительно нет и iiko только планируется? Решение окончательное, подрядчик по внедрению выбран? Рассматривают ли отдать постановку учёта нам — вместе с платформой?</div>
+      <div class="qw"><b>что это меняет у нас</b>Самый важный из десяти. Если учёт отдают нам — это отдельный крупный блок работ и вход в проект целиком, а не куском. Если его ставит чужой подрядчик — мы зависим от качества его справочников и номенклатуры, и это надо закладывать в риски и в сроки. Модули №1 и №4 без работающего учёта не запускаются вообще.</div>
+    </div></div>
+    <div class="q"><div class="n">2</div><div class="c">
+      <div class="qt">Периметр замещения сервисов</div>
+      <div class="qb">Платформа работает поверх нынешних сервисов — QR-меню, лояльность, телефония — или заменяет их? Есть договоры, которые нельзя прекратить в ближайший год?</div>
+      <div class="qw"><b>что это меняет у нас</b>Три прочтения слова «консолидировать»: витрина поверх существующего, своё ядро с интеграциями, полная замена. Сметы отличаются кратно. Плюс отсюда видно, реальна ли экономия на подписках, которой они сами мотивируют проект.</div>
+    </div></div>
+    <div class="q"><div class="n">3</div><div class="c">
+      <div class="qt">Телефония и номерная ёмкость</div>
+      <div class="qb">Какие операторы обслуживают заведения сейчас? Готовы переносить действующие номера в единую ёмкость или заводить новые? Единый номер уже подбирают?</div>
+      <div class="qw"><b>что это меняет у нас</b>Двенадцать номеров у семи операторов. Перенос — процедура со своими сроками, которые от нас не зависят и которые надо запускать заранее. Если номера меняются, их придётся обновить на сайте, в справочниках, в QR-меню и на носителях: работа их, но планировать её надо нам. Модуль №2 без этого не стартует.</div>
+    </div></div>
+    <div class="q"><div class="n">4</div><div class="c">
+      <div class="qt">Колл-центр как подразделение</div>
+      <div class="qb">Операторы свои или на аутсорсе? Сколько человек, какой график, где сидят? Кто будет руководить подразделением?</div>
+      <div class="qw"><b>что это меняет у нас</b>Определяет, входит ли в проект только программа — или ещё и создание подразделения: регламенты обработки обращений, скрипты, ролевая модель, обучение, контроль качества. Судя по открытым вакансиям, операторов пока не нанимают, то есть подразделения нет. Это отдельный большой блок консалтинга.</div>
+    </div></div>
+    <div class="q"><div class="n">5</div><div class="c">
+      <div class="qt">Периметр: заведения и открытия</div>
+      <div class="qb">Двенадцать заведений — верно? Дубай входит в проект? Сколько открытий планируется в ближайший год?</div>
+      <div class="qw"><b>что это меняет у нас</b>Дубай — вторая валюта в отчётности и другое законодательство о персональных данных. Закладывать надо в модель данных сразу: дописать потом стоит кратно дороже. Планы открытий определяют, проектируем мы под двенадцать заведений или под двадцать, и какую брать лицензионную модель.</div>
+    </div></div>
+    <div class="q"><div class="n">6</div><div class="c">
+      <div class="qt">Юрлица и сводная отчётность</div>
+      <div class="qb">Сколько юридических лиц в группе? Нужна ли сводная управленческая отчётность по всей сети в одной системе? Учёт ведут свои бухгалтеры или внешняя компания?</div>
+      <div class="qw"><b>что это меняет у нас</b>Мы видим минимум два юрлица. Если нужна консолидация — это отдельный слой в архитектуре и отдельный этап работ. Если не нужна — экономим объём и не продаём лишнего. От бухгалтерии зависит, с кем стыковать учётный контур.</div>
+    </div></div>
+    <div class="q"><div class="n">7</div><div class="c">
+      <div class="qt">Лояльность и база гостей</div>
+      <div class="qb">Сколько карт выпущено и сколько активны? Позволяет ли договор с сервисом выгрузить базу и историю? Готовы ли обсуждать пересмотр самой модели программы?</div>
+      <div class="qw"><b>что это меняет у нас</b>Если базу можно выгрузить — мигрируем и стартуем с наполненной CRM. Если нет — собираем заново, а это месяцы. Отдельно: переход с бессрочной скидки на бонус — вероятно, самый крупный денежный эффект всего проекта. Но это их управленческое решение, и лучше заранее понять, готовы ли они вообще к такому разговору.</div>
+    </div></div>
+    <div class="q"><div class="n">8</div><div class="c">
+      <div class="qt">Доставка и внешние каналы</div>
+      <div class="qb">С какими агрегаторами работает сеть и какую долю выручки даёт доставка? Входит ли доставка в периметр проекта?</div>
+      <div class="qw"><b>что это меняет у нас</b>Доставки в задании нет вообще, при этом сеть представлена на агрегаторе минимум девятью витринами. Если канал не включить, единая база гостей с первого дня будет неполной ровно на объём доставки. Если включить — это интеграции с агрегаторами, отдельный блок работ.</div>
+    </div></div>
+    <div class="q"><div class="n">9</div><div class="c">
+      <div class="qt">Кто ведёт проект</div>
+      <div class="qb">Кто писал техническое задание? Есть штатный IT-специалист или внешний подрядчик? Кто принимает решение и кто будет работать с нами еженедельно?</div>
+      <div class="qw"><b>что это меняет у нас</b>Задание написано технически грамотно — значит на той стороне есть сильный специалист. Нам важно понять, союзник он или контролёр: кому адресовать основной документ, а кому техническое приложение. И кто именно выделит нам время команды — без этого внедрение буксует на любом проекте.</div>
+    </div></div>
+    <div class="q"><div class="n">10</div><div class="c">
+      <div class="qt">Сроки и прошлый опыт</div>
+      <div class="qb">Что стало поводом взяться сейчас и есть ли целевой срок? Пробовали ли раньше внедрять подобное и чем закончилось? Есть ли внутренние ограничения — по безопасности, по ИТ-политике?</div>
+      <div class="qw"><b>что это меняет у нас</b>Целевая дата разворачивает дорожную карту от неё назад. А вопрос про прошлый опыт — самый недооценённый из десяти: неудачное внедрение в прошлом покажет, где у них болит и чего они боятся. Это можно снять в предложении заранее, до того как возражение прозвучит вслух.</div>
+    </div></div>
+
+    <a class="cta" href="ChefUp-White-Enterprise-voprosy.pdf" download="ChefUp — Уточняющие вопросы. White Enterprise.pdf">
+      <span><span class="ct">Те же десять вопросов — документ для заказчика</span><span class="cs">Деловой регистр, от лица компании, без наших внутренних пояснений. Пересылается как есть.</span></span>
+      <span class="ca">PDF · скачать ↓</span>
+    </a>
+  </section>
+
+  <!-- ===== ЧТО ПРОСИМ ===== -->
+  <section>
+    <div class="eyebrow">Раздел 6</div>
+    <h2>Что просим у вас, Александр</h2>
+    <ol class="ask">
+      <li><strong>Сверьте картину.</strong> Мы собрали её снаружи, вы знаете сеть изнутри. Если где-то мы попали мимо — лучше сейчас, чем в большом документе.</li>
+      <li><strong>Передайте вопросы заказчику.</strong> Документ по кнопке выше готов к пересылке — он написан в деловом регистре и не содержит наших внутренних пояснений. Ответ на первый вопрос, про учёт, определяет структуру всего предложения.</li>
+      <li><strong>Подскажите, как построить разговор.</strong> Кто принимает решение, что для него важно, что может стать препятствием.</li>
+    </ol>
+
+    <div class="callout">
+      <div class="t">Что дальше с нашей стороны</div>
+      <p>Получаем ответы — собираем полное предложение: архитектура, состав работ, этапы и смета. Показываем его вам до того, как оно уйдёт заказчику. Дальше едем и проходим документ вместе с собственником.</p>
+    </div>
+
+    <footer>
+      <div class="fb">MetaFrame · ChefUp Central Asia · Benevsky IT Hub</div>
+      <div class="fc">
+        team@benevsky.work · +7 747 333 69 99 · t.me/benevsky<br>
+        Астана, Казахстан · работаем по Центральной Азии
+      </div>
+    </footer>
+  </section>
+
+</div>
+</body>
+</html>
